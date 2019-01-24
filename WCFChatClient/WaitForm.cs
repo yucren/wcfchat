@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WCFChatClient
+{
+    public partial class WaitForm : Form
+    {
+        public WaitForm()
+        {
+            InitializeComponent();
+        }
+
+        public void ShowError(string errMessage)
+        {
+            this.lblErrorMessage.Text = errMessage;
+            this.pnlError.BringToFront();
+            this.Text = "Connection error";
+            pnlConnecting.Visible = false;
+            pnlError.Visible = true;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
